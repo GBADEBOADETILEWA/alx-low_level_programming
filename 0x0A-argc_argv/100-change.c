@@ -1,52 +1,33 @@
-#include <stdio.h>                                                                                                                   
-#include <stdlib.h>                                                                                                                  
-                                                                                                                                     
-/**                                                                                                                                  
- * main - function                                                                                                                   
- *@argc: length of argv                                                                                                              
- *@argv: number of argument                                                                                                          
- *Return: Always 0                                                                                                                   
- */                                                                                                                                  
-                                                                                                                                     
-int main(int argc, char *argv[])                                                                                                     
-{                                                                                                                                    
-/*Declaring variables*/                                                                                                              
-int position, total, change, aux;                                                                                                    
-int coins[] = {25, 10, 5, 2, 1}; /*Array int*/                                                                                       
-                                                                                                                                     
-position = total = change = aux = 0;                                                                                                 
-                                                                                                                                     
-if (argc != 2)                                                                                                                       
-{                                                                                                                                    
-printf("Error\n");                                                                                                                   
-return (1);                                                                                                                          
-}
-                                                                                                                                     
-total = atoi(argv[1]); /*Covert str to int*/                                                                                         
-                                                                                                                                     
-if (total <= 0)                                                                                                                      
-{                                                                                                                                    
-printf("0\n");                                                                                                                       
-return (0);                                                                                                                          
-}                                                                                                                                    
-                                                                                                                                     
-/*Declaring While*/                                                                                                                  
-                                                                                                                                     
-while (coins[position] != '\0')                                                                                                      
-                                                                                                                                     
-{                                                                                                                                    
-if (total >= coins[position])                                                                                                        
-{                                                                                                                                    
-aux = (total / coins[position]);                                                                                                     
-change += aux;                                                                                                                       
-total -= coins[position] * aux;                                                                                                      
-}                                                                                                                                    
-                                                                                                                                     
-position++;
-                                                                                                                                     
-}                                                                                                                                    
-                                                                                                                                     
-printf("%d\n", change);                                                                                                              
-return (0);                                                                                                                          
-}
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 
+/**
+ * main - adds numbers
+ * @argc: number of arguments passed to the function
+ * @argv: argument vector of pointers to strings
+ *
+ * Return: 0 if no errors, else 1
+ */
+int main(int argc, char *argv[])
+{
+	int a = 0, i, j;
+
+	for (i = 1; i < argc; i++)
+	{
+		for (j = 0; argv[i][j]; j++)
+		{
+			if (isdigit(argv[i][j]) == 0)
+			{
+				puts("Error");
+				return (1);
+			}
+		}
+	}
+	for (i = 1; i < argc; i++)
+	{
+		a += atoi(argv[i]);
+	}
+	printf("%d\n", a);
+	return (0);
+}
