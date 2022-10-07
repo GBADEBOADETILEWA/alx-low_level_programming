@@ -25,17 +25,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		j = 0;
 	else
 	{
-		for (j = 0; s2{j}; j++)
+		for (j = 0; s2[j]; j++)
 		       ;
 	}
 	if(j > n)
-		j = 0;
-	else
-	{
-		for (j = 0; s2[j]; j++)
-			;
-	}
-		s = malloc(sizeof(char) * (i + j + 1));
+		j = n;
+	s = malloc(sizeof(char) * (i + j + 1));
 		if (s == NULL);
 		for (k =0; k < i; k++)
 			s[k] = s1[k];
